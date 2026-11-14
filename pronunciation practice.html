@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Say It Right – English Pronunciation Practice</title>
+<style>
+:root{--bg:#eef1ff;--card:#fff;--ink:#1a2040;--mute:#5d6688;--line:#dbe1f5;--acc:#5b3df5;--accink:#fff;--ok:#0f8a5f;--okbg:#dcf7ea;--bad:#c23552;--badbg:#ffe3e8;--h1:#5b3df5;--h2:#ff5d73;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1226;--card:#181f3a;--ink:#edf0ff;--mute:#a3add0;--line:#2b3560;--acc:#8d7bff;--accink:#0e1226;--ok:#5fe0ab;--okbg:#12392e;--bad:#ff93a7;--badbg:#42192a;--h1:#3b2aa8;--h2:#b8344c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1226;--card:#181f3a;--ink:#edf0ff;--mute:#a3add0;--line:#2b3560;--acc:#8d7bff;--accink:#0e1226;--ok:#5fe0ab;--okbg:#12392e;--bad:#ff93a7;--badbg:#42192a;--h1:#3b2aa8;--h2:#b8344c;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Avenir Next","Trebuchet MS","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:16px 14px 60px}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;border-radius:24px;padding:22px;display:grid;gap:16px}
+.hero h1{margin:0;font:italic 800 clamp(30px,7vw,52px)/1.05 Georgia,serif;letter-spacing:-.02em}
+.hero p{margin:6px 0 0;max-width:48ch;opacity:.95}
+.wave{display:flex;gap:5px;align-items:center;height:34px;margin-top:12px}
+.wave i{width:6px;height:100%;background:#fff;border-radius:4px;opacity:.85;animation:w 1.2s ease-in-out infinite}
+.wave i:nth-child(2n){animation-delay:.2s}.wave i:nth-child(3n){animation-delay:.45s}.wave i:nth-child(5n){animation-delay:.7s}
+@keyframes w{0%,100%{transform:scaleY(.2)}50%{transform:scaleY(1)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:rgba(255,255,255,.18);border-radius:14px;padding:8px 10px;text-align:center}
+.stat b{display:block;font-size:22px;line-height:1.2}.stat span{font-size:13px;opacity:.9}
+.lvbar{height:10px;background:rgba(255,255,255,.3);border-radius:6px;overflow:hidden}.lvbar i{display:block;height:100%;width:0;background:#fff;border-radius:6px;transition:width .5s}
+.lvnote{font-size:13px;margin-top:4px;opacity:.95}
+h2{font-size:22px;margin:30px 0 10px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.mod{all:unset;box-sizing:border-box;cursor:pointer;display:block;background:var(--card);border:2px solid var(--line);border-top:8px solid var(--mc);border-radius:18px;padding:14px;transition:transform .15s}
+.mod:hover{transform:translateY(-3px)}
+.mod[aria-current="true"]{box-shadow:0 0 0 3px var(--mc)}
+.mod .ic{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:14px;font-size:26px;background:color-mix(in srgb,var(--mc) 22%,var(--card));float:left;margin-right:12px}
+.mod strong{display:block;font-size:18px}.mod small{color:var(--mute);display:block}
+.mod .row{clear:both;display:flex;justify-content:space-between;align-items:center;padding-top:10px;font-size:14px;color:var(--mute)}
+.bar{height:8px;background:var(--line);border-radius:5px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;width:0;background:var(--mc);transition:width .4s}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.panel{background:var(--card);border:2px solid var(--line);border-top:10px solid var(--mc,var(--acc));border-radius:20px;padding:20px;margin-top:16px}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.ph h3{margin:0;font-size:22px}.streak{font-weight:800;color:var(--bad)}
+.dots{display:flex;gap:6px;margin:12px 0 16px}.dots span{flex:1;height:10px;border-radius:5px;background:var(--line);max-width:48px}
+.dots .g{background:var(--ok)}.dots .r{background:var(--bad)}.dots .c{background:var(--mc);outline:2px solid var(--mc);outline-offset:2px}
+.q{font-size:20px;font-weight:700;margin:8px 0 12px}.cnt{color:var(--mute);font-size:14px}
+.btn,.opt,.sp{font:inherit;cursor:pointer;color:var(--ink);background:var(--card);border:2px solid var(--line);border-bottom-width:5px;border-radius:14px;padding:10px 16px;transition:transform .1s}
+.btn:active,.opt:active,.sp:active{transform:translateY(3px);border-bottom-width:2px}
+.btn.go{background:var(--acc);color:var(--accink);border-color:var(--acc);font-weight:800}
+.btn.lis{background:color-mix(in srgb,var(--mc) 25%,var(--card));border-color:var(--mc);font-weight:700;font-size:18px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}
+.opt{text-align:center;font-size:18px;font-weight:600}
+.orow{display:flex;gap:6px}.orow .opt{flex:1}.sp{padding:6px 12px}
+.opt.right{background:var(--okbg);border-color:var(--ok);animation:pop .3s}
+.opt.wrong{background:var(--badbg);border-color:var(--bad);animation:shake .35s}
+.opt:disabled,.btn:disabled{cursor:default;opacity:.85}
+@keyframes pop{50%{transform:scale(1.06)}}@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{border-radius:14px;padding:12px 16px;margin:12px 0}.fb.ok{background:var(--okbg)}.fb.no{background:var(--badbg)}
+.fb b{display:block;font-size:17px}.fb.ok b{color:var(--ok)}.fb.no b{color:var(--bad)}
+.word{font:800 clamp(34px,9vw,56px)/1.1 Georgia,serif;margin:6px 0 12px}
+.ty{font:inherit;font-size:22px;padding:10px 14px;border-radius:14px;border:3px solid var(--line);background:var(--card);color:var(--ink);width:min(100%,320px);margin-right:8px}
+.say{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
+.phr{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:2px dashed var(--line)}
+.phr label{flex:1;cursor:pointer;font-weight:600}.phr input{margin-right:8px;accent-color:var(--acc)}
+.chk{display:block;margin:8px 0}.chk input{accent-color:var(--acc);margin-right:8px}
+.note{font-size:14px;color:var(--mute)}
+mark{background:#ffe27a;color:#222;padding:0 4px;border-radius:4px}
+.stars{font-size:44px;letter-spacing:6px;margin:4px 0}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.vid{background:var(--card);border:2px solid var(--line);border-left:8px solid var(--mc);border-radius:16px;padding:14px}
+.vid h3{margin:0 0 4px;font-size:16px}.vid p{margin:0 0 8px;color:var(--mute);font-size:14px}
+.vid a{color:var(--acc);font-weight:800}
+footer{margin-top:30px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.conf{position:fixed;top:-30px;font-size:26px;pointer-events:none;animation:fall 2.4s linear forwards;z-index:9}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+audio{width:100%;margin-top:10px}audio[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <div>
+    <h1>/ˈprɒnənsieɪʃən/</h1>
+    <p>Listen, tap, type, and speak. Finish each activity to get instant feedback, earn XP, and unlock badges.</p>
+    <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div>
+    <div class="stats" aria-live="polite">
+      <div class="stat"><b id="xp">0</b><span>XP</span></div>
+      <div class="stat"><b id="lv">Starter</b><span>level</span></div>
+      <div class="stat"><b id="bd">0/6</b><span>badges</span></div>
+    </div>
+    <div class="lvbar" style="margin-top:12px"><i id="lvbar"></i></div><div class="lvnote" id="lvnote"></div>
+  </div>
+</section>
+
+<h2>Choose a mission</h2>
+<div class="grid" id="mods"></div>
+<div class="panel" id="panel"></div>
+
+<h2>Videos to watch</h2>
+<p class="note">Watch a video before or after each mission. Links open in a new tab.</p>
+<div class="vids" id="vids"></div>
+
+<footer>
+  <span class="note">Progress is saved on this device. Recordings never leave your device.</span>
+  <span><button class="btn" id="mute">🎵 Sound effects: on</button> <button class="btn" id="reset">Reset progress</button></span>
+</footer>
+</div>
+
+<script>
+/* ===== TEACHER: ADD YOUR VIDEO LINKS HERE =====
+   Put the full link inside url:"" (for example "https://www.youtube.com/watch?v=...").
+   Cards with an empty url show "Link coming soon". Add or delete lines as needed. */
+const VIDEOS=[
+ {title:"Short and long vowels",mod:0,note:"cap/cape, kit/kite, hat/hate.",url:"https://www.youtube.com/watch?v=69DwHUg2f7s"},
+ {title:"The sounds PH, SH, and TH",mod:1,note:"Mouth position for /f/, /ʃ/, /θ/, and /ð/.",url:"https://www.youtube.com/watch?v=YTLg-_cP8SY"},
+ {title:"Word stress",mod:2,note:"How to find the strong syllable.",url:"https://www.youtube.com/watch?v=Vu6UVwkUgzc"},
+ {title:"Past tense -ed endings",mod:3,note:"/t/, /d/, and /ɪd/.",url:"https://www.youtube.com/watch?v=DyAp3-H62ow"},
+ {title:"Plural and -s endings",mod:4,note:"/s/, /z/, and /ɪz/.",url:"https://www.youtube.com/watch?v=yJ1c5bq2beM"},
+ {title:"Silent letters",mod:5,note:"knife, write, comb, hour.",url:"https://www.youtube.com/watch?v=aS-aNViAPsA"}
+];
+
+/* Activity types: Q = question (optional audio "say"), O = odd one out (tap 🔊 on each word),
+   T = type what you hear, S = sorting round (several words, feedback on each). */
+const MODS=[
+{id:"vowels",ic:"🔤",n:"Short & long vowels",sub:"cap vs. cape",c:"#ff5d73",intro:"A short word like cap has a short vowel. Add a silent final e (cape) and the vowel becomes long.",
+ A:[
+ {k:"Q",say:"cape",q:"Listen. Which word do you hear?",o:["cap","cape"],a:1,ok:"Cape /keɪp/ has a long vowel because of the silent e.",no:"It was cape /keɪp/. Cap /kæp/ has a short vowel."},
+ {k:"Q",say:"kit",q:"Listen. Which word do you hear?",o:["kit","kite"],a:0,ok:"Kit /kɪt/ has a short vowel.",no:"It was kit /kɪt/. In kite /kaɪt/ the silent e makes the vowel long."},
+ {k:"O",q:"Which word has a DIFFERENT vowel sound? Tap 🔊 to listen.",o:["hat","cap","tape"],a:2,ok:"Tape has the long /eɪ/. Hat and cap have the short /æ/.",no:"Tape is different: it has the long /eɪ/, while hat and cap have the short /æ/."},
+ {k:"T",say:"hope",ans:"hope",ok:"hope /hoʊp/: the silent e makes the o long.",no:"It was hope /hoʊp/. Without the e, hop /hɑːp/ has a short vowel."},
+ {k:"S",q:"Short vowel or long vowel? Sort each word.",cats:["Short vowel","Long vowel"],rule:["No silent e: the vowel is short.","Silent e at the end: the vowel is long."],items:[["bit",0,"bit /bɪt/"],["site",1,"site /saɪt/"],["cut",0,"cut /kʌt/"],["cute",1,"cute /kjuːt/"],["pin",0,"pin /pɪn/"],["pine",1,"pine /paɪn/"]]},
+ {k:"Q",say:"time",q:"Listen. Which word rhymes with this one?",o:["team","lime","Tim"],a:1,ok:"Lime /laɪm/ rhymes with time /taɪm/: same long vowel.",no:"Lime /laɪm/ rhymes with time /taɪm/. Team has /iː/ and Tim has a short /ɪ/."}
+ ],sp:["cap – cape","hat – hate","kit – kite","I hope the tape is here."]},
+{id:"cons",ic:"👄",n:"PH, SH & TH",sub:"phone, ship, think",c:"#ffb000",intro:"“ph” sounds like /f/, “sh” is /ʃ/, and “th” can be /θ/ (think) or /ð/ (this).",
+ A:[
+ {k:"Q",q:"What sound does “ph” make in phone?",o:["/p/","/f/","/ʃ/"],a:1,ok:"“ph” sounds like /f/: phone /foʊn/.",no:"In English, “ph” is pronounced /f/, as in phone and photo."},
+ {k:"Q",say:"ship",q:"Listen. Which word do you hear?",o:["ship","chip"],a:0,ok:"Ship starts with /ʃ/ (air flows). Chip starts with /tʃ/ (a short stop first).",no:"It was ship /ʃɪp/. In chip, /tʃ/ starts with a small stop of air."},
+ {k:"S",q:"Which sound does each word START with?",cats:["/f/","/ʃ/","/θ/"],rule:["“ph” and “f” are /f/: top teeth touch your lower lip.","“sh” is /ʃ/: lips rounded, air flows.","“th” is /θ/: tongue lightly between your teeth."],items:[["phone",0,"phone /foʊn/"],["shop",1,"shop /ʃɑːp/"],["thank",2,"thank /θæŋk/"],["photo",0,"photo /ˈfoʊtoʊ/"],["sheep",1,"sheep /ʃiːp/"],["three",2,"three /θriː/"]]},
+ {k:"Q",say:"think",q:"Listen. Which word do you hear?",o:["think","sink"],a:0,ok:"For /θ/ in think, put your tongue between your teeth and blow air.",no:"It was think /θɪŋk/. For /s/ in sink, your tongue stays behind your teeth."},
+ {k:"O",q:"Which “th” sound is DIFFERENT? Tap 🔊 to listen.",o:["think","this","thank"],a:1,ok:"This starts with the voiced /ð/ (your throat vibrates). Think and thank start with /θ/.",no:"This /ðɪs/ is different: it has the voiced /ð/. Think and thank have the voiceless /θ/."},
+ {k:"T",say:"sheep",ans:"sheep",ok:"sheep /ʃiːp/: “sh” makes the /ʃ/ sound.",no:"It was sheep /ʃiːp/. Remember: “sh” = /ʃ/."}
+ ],sp:["phone – photo","ship – chip","think – this","She thinks the photo is nice."]},
+{id:"stress",ic:"🥁",n:"Word stress",sub:"banana, hotel, teacher",c:"#00b8a9",intro:"Every English word with two or more syllables has one strong syllable. Say it louder, longer, and clearer.",
+ A:[
+ {k:"Q",q:"Which syllable is stressed in banana?",o:["ba","NA","na"],a:1,ok:"ba-NA-na.",no:"The stress is on the second syllable: ba-NA-na."},
+ {k:"Q",q:"Which syllable is stressed in teacher?",o:["TEA","cher"],a:0,ok:"TEA-cher: many two-syllable nouns have the stress on the first syllable.",no:"TEA-cher: the stress is on the first syllable."},
+ {k:"S",q:"Where is the stress? Sort each word.",cats:["1st syllable","2nd syllable"],rule:["Stress on the first syllable.","Stress on the second syllable."],items:[["teacher",0,"TEA-cher"],["hotel",1,"ho-TEL"],["water",0,"WA-ter"],["begin",1,"be-GIN"],["happy",0,"HAP-py"],["away",1,"a-WAY"]]},
+ {k:"Q",say:"hotel",q:"Listen. Which syllable sounds stronger?",o:["HO-tel","ho-TEL"],a:1,ok:"ho-TEL /hoʊˈtel/: the stress is on the second syllable.",no:"It was ho-TEL /hoʊˈtel/. The second syllable is louder and longer."},
+ {k:"Q",q:"Which syllable is stressed in presentation?",o:["pre","sen","TA","tion"],a:2,ok:"pre-sen-TA-tion: with -tion, the syllable before it is stressed.",no:"pre-sen-TA-tion: the syllable right before -tion is stressed."},
+ {k:"O",q:"Which word has a DIFFERENT stress pattern? Tap 🔊 to listen.",o:["table","city","guitar"],a:2,ok:"Guitar is gi-TAR (2nd syllable). TA-ble and CI-ty are stressed on the first.",no:"Guitar is different: gi-TAR has the stress on the 2nd syllable; TA-ble and CI-ty on the 1st."}
+ ],sp:["banana","important","presentation","The hotel is important."]},
+{id:"ed",ic:"⏪",n:"Past tense -ed",sub:"worked, played, wanted",c:"#7c4dff",intro:"The -ed ending has three sounds: /t/ (worked), /d/ (played), and /ɪd/ (wanted).",
+ A:[
+ {k:"Q",say:"worked",q:"Listen. How is the -ed pronounced in worked?",o:["/t/","/d/","/ɪd/"],a:0,ok:"After /k/ we say /t/: worked /wɜːrkt/.",no:"It is /t/: worked /wɜːrkt/. After a sound like /k/, -ed is /t/."},
+ {k:"Q",say:"wanted",q:"Listen. How many syllables do you hear?",o:["1","2","3"],a:1,ok:"Wanted /ˈwɑːntɪd/ has 2 syllables: after /t/ or /d/ we add /ɪd/.",no:"Wanted has 2 syllables /ˈwɑːntɪd/: after /t/ we add an extra /ɪd/."},
+ {k:"S",q:"How is the -ed pronounced? Sort each verb.",cats:["/t/","/d/","/ɪd/"],rule:["After sounds like /k/, /ʃ/, /p/, /s/, we say /t/.","After most other voiced sounds and vowels, we say /d/.","After /t/ or /d/, we add a new syllable /ɪd/."],items:[["worked",0,"worked /wɜːrkt/"],["played",1,"played /pleɪd/"],["wanted",2,"wanted /ˈwɑːntɪd/"],["washed",0,"washed /wɑːʃt/"],["listened",1,"listened /ˈlɪsənd/"],["needed",2,"needed /ˈniːdɪd/"]]},
+ {k:"O",q:"Which -ed sound is DIFFERENT? Tap 🔊 to listen.",o:["jumped","helped","stayed"],a:2,ok:"Stayed ends in /d/. Jumped and helped end in /t/.",no:"Stayed /steɪd/ is different: it ends in /d/. Jumped and helped end in /t/."},
+ {k:"Q",q:"Which past verb has an EXTRA syllable?",o:["looked","ended","cleaned"],a:1,ok:"Ended /ˈendɪd/: after /d/ we add /ɪd/.",no:"Ended /ˈendɪd/ has two syllables. Looked and cleaned have one."},
+ {k:"T",say:"watched",ans:"watched",ok:"watched /wɑːtʃt/: the -ed sounds like /t/.",no:"It was watched /wɑːtʃt/: the -ed sounds like /t/."}
+ ],sp:["worked – played – wanted","I watched a video and listened to music.","She wanted to practice."]},
+{id:"s",ic:"🐱",n:"Plural & -s endings",sub:"cats, dogs, buses",c:"#2d9cff",intro:"The -s ending (plurals and he/she/it verbs) has three sounds: /s/ (cats), /z/ (dogs), and /ɪz/ (buses).",
+ A:[
+ {k:"Q",say:"cats",q:"Listen. How is the -s pronounced in cats?",o:["/s/","/z/","/ɪz/"],a:0,ok:"After /t/ we say /s/: cats /kæts/.",no:"It is /s/: cats /kæts/. After sounds like /t/, /k/, /p/, we say /s/."},
+ {k:"Q",say:"dogs",q:"Listen. How is the -s pronounced in dogs?",o:["/s/","/z/","/ɪz/"],a:1,ok:"After /g/ we say /z/: dogs /dɔːɡz/.",no:"It is /z/: dogs /dɔːɡz/. After voiced sounds, -s sounds like /z/."},
+ {k:"S",q:"How is the -s pronounced? Sort each word.",cats:["/s/","/z/","/ɪz/"],rule:["After sounds like /k/, /t/, /p/, we say /s/.","After vowels and sounds like /g/, /b/, /n/, we say /z/.","After /s/, /z/, /ʃ/, /tʃ/, we add a new syllable /ɪz/."],items:[["books",0,"books /bʊks/"],["dogs",1,"dogs /dɔːɡz/"],["buses",2,"buses /ˈbʌsɪz/"],["cats",0,"cats /kæts/"],["bags",1,"bags /bæɡz/"],["watches",2,"watches /ˈwɑːtʃɪz/"]]},
+ {k:"Q",say:"buses",q:"Listen. How many syllables do you hear?",o:["1","2","3"],a:1,ok:"Buses /ˈbʌsɪz/ has 2 syllables: after /s/ we add /ɪz/.",no:"Buses has 2 syllables /ˈbʌsɪz/: after /s/ we add an extra /ɪz/."},
+ {k:"O",q:"Which -s sound is DIFFERENT? Tap 🔊 to listen.",o:["bags","boxes","dogs"],a:1,ok:"Boxes /ˈbɑːksɪz/ ends with /ɪz/ (extra syllable). Bags and dogs end in /z/.",no:"Boxes is different: it ends with /ɪz/ and has two syllables. Bags and dogs end in /z/."},
+ {k:"T",say:"teaches",ans:"teaches",ok:"teaches /ˈtiːtʃɪz/: after /tʃ/ we add /ɪz/.",no:"It was teaches /ˈtiːtʃɪz/: after /tʃ/ we add an extra syllable /ɪz/."}
+ ],sp:["cats – dogs – buses","She watches videos and reads books.","He teaches English."]},
+{id:"silent",ic:"🤫",n:"Silent letters",sub:"knife, write, comb, hour",c:"#7bc400",intro:"Some letters are written but not pronounced. Learn the common patterns to avoid spelling-based mistakes.",
+ A:[
+ {k:"Q",q:"Which letter is silent in knife?",o:["k","n","f"],a:0,ok:"The k is silent: knife /naɪf/.",no:"The k is silent: knife /naɪf/. In kn- words, we do not say the k."},
+ {k:"Q",q:"Which letter is silent in write?",o:["w","r","t"],a:0,ok:"The w is silent: write /raɪt/.",no:"The w is silent: write /raɪt/. In wr- words, we do not say the w."},
+ {k:"O",q:"Which word has NO silent letter? Tap 🔊 to listen.",o:["climb","hour","table"],a:2,ok:"Table /ˈteɪbəl/ has no silent letter. Climb has a silent b and hour has a silent h.",no:"Table is the answer. Climb /klaɪm/ has a silent b; hour /aʊr/ has a silent h."},
+ {k:"S",q:"Which letter is silent in each word?",cats:["k","w","b","h"],rule:["The k before n is silent.","The w before r is silent.","The b after m is often silent.","The h is silent in a few words, like hour and honest."],items:[["knee",0,"knee /niː/"],["write",1,"write /raɪt/"],["comb",2,"comb /koʊm/"],["hour",3,"hour /aʊr/"],["knock",0,"knock /nɑːk/"],["wrong",1,"wrong /rɔːŋ/"]]},
+ {k:"Q",say:"Wednesday",q:"Listen. How do we say Wednesday?",o:["WED-nes-day","WENZ-day","WED-nes-dee"],a:1,ok:"Wednesday /ˈwenzdeɪ/ has 2 syllables: the first d is silent.",no:"It is WENZ-day /ˈwenzdeɪ/: two syllables, and the first d is silent."},
+ {k:"T",say:"wrong",ans:"wrong",ok:"wrong /rɔːŋ/: the w is silent.",no:"It was wrong /rɔːŋ/. Remember: the w before r is silent."}
+ ],sp:["knife – knee – know","write – wrong","hour – climb – comb","Wednesday"]}
+];
+const LV=[[0,"Starter"],[60,"Explorer"],[150,"Speaker"],[260,"Pro"],[360,"Champion"]];
+const $=s=>document.querySelector(s);
+let S={x:{},mute:0};
+try{const r=JSON.parse(localStorage.getItem("pron-v2")||"null");if(r&&r.x)S=r}catch(e){}
+MODS.forEach(m=>{S.x[m.id]=S.x[m.id]||{r:[],sp:0}});
+const save=()=>{try{localStorage.setItem("pron-v2",JSON.stringify(S))}catch(e){}};
+let cur=-1,step=0,tmp=[],streak=0,ac,rec,chunks,strm,url,target=0;
+const R=m=>S.x[m.id].r, sc=m=>R(m).reduce((t,v)=>t+(v||0),0), ans=m=>R(m).filter(v=>v!=null).length;
+const full=m=>ans(m)===m.A.length, pct=m=>sc(m)/(m.A.length*10), badge=m=>full(m)&&pct(m)>=.7;
+const xp=()=>MODS.reduce((t,m)=>t+sc(m)+S.x[m.id].sp*10,0);
+function fx(ok){if(S.mute)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const t=ac.currentTime;(ok?[523,659,784]:[220,165]).forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;o.type=ok?"triangle":"sawtooth";g.gain.setValueAtTime(.07,t+i*.1);g.gain.exponentialRampToValueAtTime(.001,t+i*.1+.12);o.connect(g);g.connect(ac.destination);o.start(t+i*.1);o.stop(t+i*.1+.13)})}catch(e){}}
+function say(t){try{if(!("speechSynthesis" in window))throw 0;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;speechSynthesis.speak(u)}catch(e){alert("Audio models are not available in this browser. Try Chrome, Edge, or Safari.")}}
+function confetti(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const e=["🎉","⭐","✨","🏅","🎊"];for(let i=0;i<26;i++){const s=document.createElement("span");s.className="conf";s.textContent=e[i%5];s.style.left=Math.random()*100+"%";s.style.animationDelay=Math.random()*.8+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),3500)}}
+function refresh(){const p=xp(),i=LV.reduce((k,l,j)=>p>=l[0]?j:k,0),nx=LV[i+1];
+ $("#xp").textContent=p;$("#lv").textContent=LV[i][1];$("#bd").textContent=MODS.filter(badge).length+"/"+MODS.length;
+ $("#lvbar").style.width=(nx?(p-LV[i][0])/(nx[0]-LV[i][0])*100:100)+"%";$("#lvnote").textContent=nx?(nx[0]-p)+" XP to reach "+nx[1]:"Top level reached!";
+ $("#mods").innerHTML=MODS.map((m,i)=>{const d=ans(m)+(S.x[m.id].sp?1:0),st=full(m)?(pct(m)>=.85?"⭐⭐⭐":pct(m)>=.6?"⭐⭐":"⭐"):"";
+  return `<button class="mod" data-i="${i}" style="--mc:${m.c}" aria-current="${i===cur}"><span class="ic">${m.ic}</span><strong>${m.n}</strong><small>${m.sub}</small><div class="row"><span>${d}/${m.A.length+1} done</span><span>${st}${badge(m)?" 🏅":""}</span></div><div class="bar"><i style="width:${d/(m.A.length+1)*100}%"></i></div></button>`}).join("");
+ document.querySelectorAll(".mod").forEach(b=>b.onclick=()=>{cur=+b.dataset.i;step=0;tmp=[];streak=0;show();$("#panel").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"})})}
+function setScore(v){const m=MODS[cur],r=R(m);r[step]=Math.max(r[step]||0,v);tmp[step]=v;save();refresh()}
+const FB=(ok,t,m)=>`<div class="fb ${ok?"ok":"no"}"><b>${t}</b>${m}</div>`;
+function cont(label){$("#fb").insertAdjacentHTML("beforeend",`<button class="btn go" id="nx">${label}</button>`);$("#nx").onclick=()=>{try{speechSynthesis.cancel()}catch(e){}step++;show()};$("#nx").focus()}
+const lastLbl=()=>step+1<MODS[cur].A.length?"Next activity ▶":"Go to speaking challenge 🎙️";
+const hit=ok=>{fx(ok);streak=ok?streak+1:0;$("#stk").textContent=streak>=2?"🔥 Streak ×"+streak:""};
+function show(){
+ if(cur<0){$("#panel").style.removeProperty("--mc");$("#panel").innerHTML=`<h3 style="margin:0 0 6px">👆 Pick a mission to start</h3><p style="margin:0">Each mission has 6 activities plus a speaking challenge. You get feedback after every answer.</p>`;return}
+ const m=MODS[cur],n=m.A.length,p=$("#panel");p.style.setProperty("--mc",m.c);
+ const dots=Array.from({length:n+1},(_,i)=>`<span class="${i===step?"c":i<step?(i<n?(tmp[i]>=7?"g":"r"):"g"):""}"></span>`).join("");
+ if(step>n){return results(m)}
+ p.innerHTML=`<div class="ph"><h3>${m.ic} ${m.n}</h3><span class="streak" id="stk"></span></div><p class="note" style="margin:4px 0 0">${m.intro}</p><div class="dots" aria-label="Progress">${dots}</div><div id="st"></div>`;
+ if(step===n)return rSpeak(m);
+ const a=m.A[step];$("#st").insertAdjacentHTML("afterbegin",`<div class="cnt">Activity ${step+1} of ${n}</div>`);
+ ({Q:rQ,O:rQ,T:rT,S:rS})[a.k](a,m)}
+function rQ(a,m){const O=a.k==="O",b=$("#st");
+ b.insertAdjacentHTML("beforeend",`<p class="q">${a.q}</p>${a.say?`<button class="btn lis" id="pl">🔊 Listen</button>`:""}<div class="opts">${a.o.map((o,i)=>O?`<div class="orow"><button class="opt" data-i="${i}">${o}</button><button class="sp" data-w="${o}" aria-label="Listen to ${o}">🔊</button></div>`:`<button class="opt" data-i="${i}">${o}</button>`).join("")}</div><div id="fb" aria-live="polite"></div>`);
+ if(a.say){$("#pl").onclick=()=>say(a.say);setTimeout(()=>say(a.say),250)}
+ document.querySelectorAll(".sp").forEach(x=>x.onclick=()=>say(x.dataset.w));
+ document.querySelectorAll(".opt").forEach(x=>x.onclick=()=>{const i=+x.dataset.i,ok=i===a.a;
+  document.querySelectorAll(".opt").forEach((y,j)=>{y.disabled=true;if(j===a.a)y.classList.add("right");else if(j===i)y.classList.add("wrong")});
+  hit(ok);setScore(ok?10:0);$("#fb").innerHTML=FB(ok,ok?"Correct! ✔ +10 XP":"Not quite ✘",ok?a.ok:a.no);cont(lastLbl())})}
+function rT(a){const b=$("#st");
+ b.insertAdjacentHTML("beforeend",`<p class="q">Listen and type the word you hear.</p><div class="say"><button class="btn lis" id="pl">🔊 Listen</button></div><input class="ty" id="ty" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Type the word"><button class="btn go" id="ck">Check</button><div id="fb" aria-live="polite"></div>`);
+ $("#pl").onclick=()=>say(a.say);setTimeout(()=>say(a.say),250);
+ const chk=()=>{const v=$("#ty").value.trim().toLowerCase();if(!v)return;const ok=v===a.ans;$("#ty").disabled=true;$("#ck").disabled=true;hit(ok);setScore(ok?10:0);
+  $("#fb").innerHTML=FB(ok,ok?"Correct! ✔ +10 XP":"Not quite ✘ You wrote “"+v.replace(/</g,"")+"”",ok?a.ok:a.no);cont(lastLbl())};
+ $("#ck").onclick=chk;$("#ty").onkeydown=e=>{if(e.key==="Enter")chk()};$("#ty").focus()}
+function rS(a){let j=0,c=0;const b=$("#st"),N=a.items.length;
+ const one=()=>{if(j>=N){const v=Math.round(10*c/N);setScore(v);b.innerHTML=`<div class="cnt">Activity ${step+1} of ${MODS[cur].A.length}</div><p class="q">${c} out of ${N} correct</p><div id="fb">${FB(v>=7,v>=7?"Great sorting! ✔ +"+v+" XP":"Keep practicing ✘ +"+v+" XP",v>=7?"You can hear and name these sounds well.":"Review the rules in the feedback and try this activity again later.")}</div>`;cont(lastLbl());return}
+  const it=a.items[j];b.innerHTML=`<div class="cnt">Activity ${step+1} of ${MODS[cur].A.length} · word ${j+1} of ${N}</div><p class="q">${a.q}</p><div class="word">${it[0]} <button class="sp" id="pl" aria-label="Listen">🔊</button></div><div class="opts">${a.cats.map((t,i)=>`<button class="opt" data-i="${i}">${t}</button>`).join("")}</div><div id="fb" aria-live="polite"></div>`;
+  $("#pl").onclick=()=>say(it[0]);setTimeout(()=>say(it[0]),200);
+  document.querySelectorAll(".opt").forEach(x=>x.onclick=()=>{const i=+x.dataset.i,ok=i===it[1];document.querySelectorAll(".opt").forEach((y,k)=>{y.disabled=true;if(k===it[1])y.classList.add("right");else if(k===i)y.classList.add("wrong")});
+   if(ok)c++;hit(ok);$("#fb").innerHTML=FB(ok,ok?"Correct! ✔":"Not quite ✘",`<span>${it[2]} — ${a.rule[it[1]]}</span>`)+`<button class="btn go" id="nw">${j+1<N?"Next word ▶":"See my result"}</button>`;$("#nw").onclick=()=>{j++;one()};$("#nw").focus()})};
+ one()}
+function rSpeak(m){const b=$("#st");
+ b.insertAdjacentHTML("beforeend",`<p class="q">🎙️ Speaking challenge</p><p class="note">Pick a phrase, listen to the model, record yourself, and compare. Then do the self-check.</p>
+ ${m.sp.map((t,i)=>`<div class="phr"><label><input type="radio" name="ph" value="${i}" ${i===target%m.sp.length?"checked":""}>${t}</label><button class="sp" data-s="${i}" aria-label="Listen to ${t}">🔊</button></div>`).join("")}
+ <div class="say" style="margin-top:12px"><button class="btn go" id="rc">🎙️ Record</button><button class="btn" id="sp2" disabled>⏹ Stop</button><span class="note" id="mi">Allow the microphone when your browser asks.</span></div><audio id="mine" controls hidden></audio>
+ <h4 style="margin:16px 0 4px">Self-check</h4>
+ <label class="chk"><input type="checkbox" class="c">I listened to the model before recording.</label>
+ <label class="chk"><input type="checkbox" class="c">My target sounds were similar to the model.</label>
+ <label class="chk"><input type="checkbox" class="c">A listener could understand me easily.</label>
+ <button class="btn go" id="ck">Get feedback</button><div id="fb" aria-live="polite"></div>`);
+ document.querySelectorAll("[data-s]").forEach(x=>x.onclick=()=>say(m.sp[+x.dataset.s]));
+ document.querySelectorAll('input[name="ph"]').forEach(x=>x.onchange=()=>target=+x.value);
+ $("#rc").onclick=async()=>{try{if(!navigator.mediaDevices||!window.MediaRecorder)throw 0;strm=await navigator.mediaDevices.getUserMedia({audio:true});rec=new MediaRecorder(strm);chunks=[];
+  rec.ondataavailable=e=>chunks.push(e.data);
+  rec.onstop=()=>{strm.getTracks().forEach(t=>t.stop());if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(new Blob(chunks,{type:rec.mimeType}));const a=$("#mine");a.src=url;a.hidden=false;$("#mi").textContent="Recording ready. Press play and compare it with the model."};
+  rec.start();$("#rc").disabled=true;$("#sp2").disabled=false;$("#mi").textContent="Recording… say: "+m.sp[target%m.sp.length]}
+  catch(e){$("#mi").innerHTML="<mark>Microphone not available.</mark> Check your browser permissions or try another browser."}};
+ $("#sp2").onclick=()=>{try{rec.stop()}catch(e){}$("#rc").disabled=false;$("#sp2").disabled=true};
+ $("#ck").onclick=()=>{const n=document.querySelectorAll(".c:checked").length,s=S.x[m.id];let t,msg;
+  if(n===3){t="Excellent! ✔";msg="Your recording matches the model well. Try another phrase, or say it faster like in your real presentation."}
+  else if(n===2){t="Almost there!";msg="Good job. Record again and focus on the item you did not check. Listen to the model once more and repeat it slowly."}
+  else{t="Keep practicing ✘";msg="Listen to the model again, repeat word by word, and then record the whole phrase. Watch the video for this mission for mouth-position tips."}
+  if(!s.sp&&n>=2){s.sp=1;save();refresh();msg+=" +10 XP"}fx(n>=2);
+  $("#fb").innerHTML=FB(n>=2,t,msg);if(!$("#nx"))cont("Finish mission 🏁")}}
+function results(m){const t=sc(m)+S.x[m.id].sp*10,mx=m.A.length*10+10,pc=pct(m),miss=m.A.map((_,i)=>i).filter(i=>(tmp[i]||0)<7).map(i=>i+1),nm=MODS[cur+1];
+ if(pc>=.7)confetti();
+ $("#panel").innerHTML=`<div class="ph"><h3>${m.ic} Mission complete!</h3></div><div class="stars">${pc>=.85?"⭐⭐⭐":pc>=.6?"⭐⭐":"⭐"}</div><p class="q">${t} / ${mx} XP${badge(m)?" · 🏅 Badge earned!":""}</p>
+ <div class="fb ${pc>=.7?"ok":"no"}"><b>${pc>=.85?"Amazing work!":pc>=.6?"Good job!":"Keep practicing!"}</b>${pc>=.85?"You are ready to use these sounds in your presentation.":pc>=.6?"You are close. Replay the activities you missed and watch the video for this mission.":"Review the explanations, watch the video, and play this mission again to improve your score."}${miss.length?`<br><span class="note">Review activities: ${miss.join(", ")}.</span>`:""}</div>
+ <button class="btn go" id="rp">↺ Play again</button> ${nm?`<button class="btn" id="nm">Next mission: ${nm.n} ▶</button>`:""} <button class="btn" id="bk">Back to missions</button>`;
+ $("#rp").onclick=()=>{step=0;tmp=[];streak=0;show()};if(nm)$("#nm").onclick=()=>{cur++;step=0;tmp=[];streak=0;refresh();show()};$("#bk").onclick=()=>{cur=-1;refresh();show();scrollTo({top:0})}}
+$("#vids").innerHTML=VIDEOS.map(v=>`<div class="vid" style="--mc:${v.mod>=0?MODS[v.mod].c:"#8d7bff"}"><h3>${v.title}</h3><p>${v.mod>=0?"Mission "+(v.mod+1)+" — ":""}${v.note}</p>${v.url?`<a href="${v.url}" target="_blank" rel="noopener noreferrer">Watch video</a>`:`<mark>Link coming soon</mark>`}</div>`).join("");
+$("#mute").onclick=()=>{S.mute=S.mute?0:1;save();$("#mute").textContent="🎵 Sound effects: "+(S.mute?"off":"on")};$("#mute").textContent="🎵 Sound effects: "+(S.mute?"off":"on");
+$("#reset").onclick=()=>{if(confirm("Delete all your progress on this device?")){MODS.forEach(m=>S.x[m.id]={r:[],sp:0});save();cur=-1;refresh();show()}};
+refresh();show();
+</script>
+</body>
+</html>
